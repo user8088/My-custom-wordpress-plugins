@@ -29,3 +29,19 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+
+ //ABSPATH IS A CONSTANT DEFINED BY WORDPRESS THAT REFERENCES THE ROOT AND THE FILE DIRECTORIES OF THE WP SETUP
+ //IF ABSPATH IS NOT DEFINED IT MEANS THAT WORDPRESS IS NOT BEING ACCESSED THROUGH AN AUTHERIZED SESSION OR THERE IS SOMETHING WRONG HENCE OPENING UP A VULNERABILITY
+ //HENCE IF ABSPATH IS NOT DEFINED WE COMMAND OUR PLUGIN TO TERMINATE.
+//  if (!defined('ABSPATH')){
+//     die;  
+//  }
+
+//ANOTHER WAY TO WRITE THIS :
+defined('ABSPATH') or die('You cannot access this file tsk tsk.');
+
+//ANOTHER WAY TO INSURE THAT WORDPRESS IS INITIALIZED OR BEING ACCESSED CORRECTLY IS BY CHECKING A PRE DEFINED 'add_action' FUNCTION
+if(!function_exists('add_action')){
+    echo 'You cannot access this file tsk tsk.';
+    exit;
+}
